@@ -2,13 +2,13 @@
 
 ## 1. 오늘 배운 개념 요약 
 
-### 레벨
+>### 레벨
 
 언리얼 엔진에서 **레벨**은 **게임 안에서 하나의 맵 또는 공간**을 의미합니다.
 
 하나의 프로젝트 안에 **여러 개의 레벨**들이 있을 수 있고, 각각 **독립된 씬**처럼 작동합니다.
 
-### 스태틱 메시란?
+>### 스태틱 메시란?
 
 스태틱 메시는 움직이지 않는 *3D 오브젝트**(예 : 벽, 바닥, 건물 등)을 의미합니다.
 
@@ -48,8 +48,8 @@
 # [내일배움캠프 Unreal] 사전캠프 - 조명과 머티리얼 기본 적용
 
 ## 1. 오늘 배운 개념 요약 
-//
-### 조명(Light) 종류
+
+>### 조명(Light) 종류
 
 Directional Light: 현실의 **태양 빛**처럼 **전체 씬에 영향**을 준다.
 
@@ -57,23 +57,46 @@ Point Light: 현실의 **전구**처럼 **특정 위치에서 빛을 방사**한
 
 Spot Light: 현실의 **스포트라이트**처럼 **특정 방향으로 빛을 집중**시킨다.
 
-### 머티리얼(Material)이란?
+>### 머티리얼(Material)이란?
 
 **오브젝트에 적용되는 재질**로, **색상만 아니라 반사, 광택, 질감** 등 표현할 수 있다.
 
 Material Instance를 사용하면 **기존 머티리얼을 빠르게 커스터마이징**이 가능하다.
 
 ## 2. 구현 과정 요약 (스크린샷 + 간단 설명)
+<img width="2559" height="1599" alt="Image" src="https://github.com/user-attachments/assets/726179cf-0d20-4e75-981d-3f2a7484ba2a" />
+
+<img width="2559" height="1599" alt="Image" src="https://github.com/user-attachments/assets/90347b16-9e52-4474-b524-b58b4087c012" />
 
 Directional Light를 추가해 씬 전체에 조명효과가 적용되게 하였다.
 
+<img width="2559" height="1599" alt="Image" src="https://github.com/user-attachments/assets/9544ceb8-7f77-4b0c-b6b5-8b67c2c36cab" />
+
 Point Light를 추가해서 지붕으로 덮인 안쪽 부분에 조명을 추가하였다.
+
+<img width="2559" height="1599" alt="Image" src="https://github.com/user-attachments/assets/19aa7d31-f4e0-4003-a783-df1be1398fed" />
+
 조명 광량 조절
+
+<img width="2559" height="1599" alt="Image" src="https://github.com/user-attachments/assets/65912a0f-8ec5-494f-b254-7c5ef0380bb4" />
+
 조명색 조절
+
+<img width="2559" height="1599" alt="Image" src="https://github.com/user-attachments/assets/9192015e-f559-4f33-8274-be053ab284f9" />
+
 Point Light를 하나 더 추가해서 서로 다른 분위기를 대비하여 보이게 만들었다.
 
+<img width="2559" height="1599" alt="Image" src="https://github.com/user-attachments/assets/cf45ce1b-4dcd-45ec-aa44-7187c7017611" />
+
 바닥과 벽에 기존 콘텐츠에 있는 머테리얼을 부여 하였다.
+
+<img width="2559" height="1599" alt="Image" src="https://github.com/user-attachments/assets/d3d94c97-326e-4ead-b87c-c6d1d552d986" />
+
 M_Mint 머테리얼을 새로 만들어 테이블 오브젝트 윗면에 부여 하였다.
+
+<img width="2559" height="1599" alt="Image" src="https://github.com/user-attachments/assets/4e87dd07-b7c9-4154-b386-11289d5f8356" />
+
+<img width="2559" height="1599" alt="Image" src="https://github.com/user-attachments/assets/2f46c98d-7770-4d18-9e57-a5bd22e7dca0" />
 
 Directional Light의 각도를 변화시켜서 낮과 저녁, 밤을 연출하였다.
 |제목|내용|
