@@ -1,7 +1,7 @@
 # [내일배움캠프 Unreal] 사전캠프 - 레벨 생성 및 기본 오브젝트 배치
 
 ## 1. 오늘 배운 개념 요약 
-//
+
 ### 레벨
 
 언리얼 엔진에서 **레벨**은 **게임 안에서 하나의 맵 또는 공간**을 의미합니다.
@@ -15,17 +15,29 @@
 모든 레벨 구성은 다양한 **Static Mesh를 조합**해서 완성합니다.
 
 ## 2. 구현 과정 요약 (스크린샷 + 간단 설명)
-1_1
-1_2
-1_3
+
+<img width="2559" height="1503" alt="Image" src="https://github.com/user-attachments/assets/b8bd1a1c-25d7-4e07-85a3-e95b1c668e4c" />
+
+<img width="2557" height="1522" alt="Image" src="https://github.com/user-attachments/assets/a648b38b-f22f-47b3-8e58-ebc0f32b3757" />
+
+<img width="2537" height="1537" alt="Image" src="https://github.com/user-attachments/assets/4770d6cc-7d2d-4526-94d6-e323e33910ac" />
+
 빈 레벨을 만들고 레벨을 다른 이름으로 저장하였다
-2
+
+<img width="2546" height="1584" alt="Image" src="https://github.com/user-attachments/assets/a986324c-d8d7-4a15-876d-0ab368118b43" />
+
 큐브를 생성하고 스케일을 조정해 바닥으로 만들었다
-3
+
+<img width="2559" height="1599" alt="Image" src="https://github.com/user-attachments/assets/4268d4ff-865b-43f6-a74b-a8bbce4d7eea" />
+
 큐브를 복제하고 스케일을 조정해 벽으로 만들었다
-4
+
+<img width="2559" height="1599" alt="Image" src="https://github.com/user-attachments/assets/fd5d43ff-8912-4387-b617-caf95868261d" />
+
 큐브와 실린더의 스케일과 위치를 조정하여 테이블과 의자로 보이게 만들었다.
-5
+
+<img width="2559" height="1599" alt="Image" src="https://github.com/user-attachments/assets/3b350eaa-65a5-408c-a649-eacaf912745f" />
+
 카메라를 움직여 다른 각도에서 테이블과 의자를 확인하였다.
 
 
