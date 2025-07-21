@@ -115,13 +115,58 @@ Directional Light의 각도를 변화시켜서 낮과 저녁, 밤을 연출하�
 
 ## 1. 오늘 배운 개념 요약 
 
+>### 에셋(Asset)이란?
+
+3D 모델, 머티리얼, 애니메이션, 사운드 등 콘텐츠 구성 요소의 총칭
+
+언리얼에서는 .uasset 형식으로 사용
+
+>### 대표적인 에셋 플랫폼
+
+Fab (공식, Unreal Engine 통합)
+
+> Fab은 Unreal Engine Marketplace, Sketchfab, Quixel, Artstation Marketplace를 결합한 플랫폼입니다.
+
+다양한 에셋을 쉽게 검색하고 다운로드할 수 있습니다.
+
+Sketchfab, TurboSquid, Free3D 등 (FBX 등 외부 포맷)
+
+> 외부 포맷으로 제공되는 에셋을 Unreal Engine에서 사용하려면 적절한 포맷으로 변환해야 합니다.
+
+>### 에셋 구매 및 다운로드 공식 문서
+
+https://dev.epicgames.com/documentation/ko-kr/fab/purchasing-and-downloading-assets-in-fab
+
+
 ## 2. 구현 과정 요약 (스크린샷 + 간단 설명)
 
-- 적용한 외부 에셋이 보이는 씬 스크린샷 1장
+<img width="2556" height="1583" alt="Image" src="https://github.com/user-attachments/assets/dd37f98b-28b8-4bf1-a6bb-48d28433d9ee" />
 
-- 어떤 플랫폼에서 어떤 에셋을 사용했는지 간단히 서술 (예: Quixel / Broken Bench / ID: 215332)
+콘텐츠 브라우저 상단의 Fab 버튼 클릭
 
-- 폴더 구조에 대한 설명 필수 포함
+<img width="2533" height="1365" alt="Image" src="https://github.com/user-attachments/assets/beca7ad4-9d51-4522-8626-af21e35c3d5a" />
+
+마음에 드는 오브젝트를 Add to My Library 클릭하여 내 라이브러리에 추가
+
+<img width="2559" height="1599" alt="Image" src="https://github.com/user-attachments/assets/95f27292-67de-4f46-8931-a46a33134386" />
+
+원하는 에셋을 Add to Project 버튼으로 프로젝트에 임포트
+
+<img width="2217" height="1359" alt="Image" src="https://github.com/user-attachments/assets/c337eaf9-d462-4e99-9e76-c2295a35a9b5" />
+
+씬에 에셋을 배치
+
+이동, 회전, 크기 조정(Transform Tool) 기능으로 위치 정리
+
+<img width="2559" height="1599" alt="Image" src="https://github.com/user-attachments/assets/abc27923-eac8-496d-ba10-28dd35f46993" />
+
+<img width="2559" height="1587" alt="Image" src="https://github.com/user-attachments/assets/a2e9c249-0e1d-4b77-b60d-5e8461bd3422" />
+
+<img width="2559" height="1599" alt="Image" src="https://github.com/user-attachments/assets/e065779d-7a71-4fc2-a159-6893d041f461" />
+
+<img width="2559" height="1599" alt="Image" src="https://github.com/user-attachments/assets/c0db88e2-35d6-45ea-9536-77f225870028" />
+
+폴더 구조를 머테리얼, 텍스쳐, 메쉬로 나누어 깔끔하게 정돈
 
 ## 3. 느낀 점 & 개선하고 싶은 점
 
@@ -145,9 +190,37 @@ FAB을 활용해서 다른 제작자가 만든 내가 원하는 스타일의 오
 
 ## 2. 구현 과정 요약 (스크린샷 + 간단 설명)
 
-- 에디터 내에서 캐릭터가 이동하는 모습 영상 녹화 (5~10초)
+<img width="2550" height="1588" alt="Image" src="https://github.com/user-attachments/assets/7c7c353b-4ae8-4f05-9aa8-21964b3518b6" />
 
-- 블루프린트 편집 화면 캡처 (Input 처리 부분)
+새로운 언리얼 프로젝트 생성, Third Person Template 선택하기
+
+Starter Content 포함되게 설정
+
+<img width="2559" height="1599" alt="Image" src="https://github.com/user-attachments/assets/5684692d-a862-4405-9b1f-11ac504a5eca" />
+
+Content > ThirdPerson > Blueprints > BP_ThirdPersonCharacter 열기
+
+<img width="2559" height="1599" alt="Image" src="https://github.com/user-attachments/assets/6dbbc06b-a1a6-4bb4-9007-71bf1b446e54" />
+
+BP_ThirdPersonCharacter를 복제하여 MyCharacter로 이름 변경
+
+<img width="2559" height="1539" alt="Image" src="https://github.com/user-attachments/assets/d2e0ece5-1574-45c1-ac54-4c8cef1c57ae" />
+
+Content > ThirdPerson > Input > IMC_Default 확인하기
+
+<img width="2180" height="1376" alt="Image" src="https://github.com/user-attachments/assets/22fbca21-f4e4-4e12-985b-8993d0cf919e" />
+
+Project Settings > Maps & Modes > Default Pawn Class를 MyCharacter로 변경
+
+<img width="1454" height="1130" alt="Image" src="https://github.com/user-attachments/assets/d2b520ba-e74a-40f6-913c-8dc6d43f1033" />
+
+<img width="1519" height="1119" alt="Image" src="https://github.com/user-attachments/assets/aaa00c25-5ecd-443c-82e1-f2eac7a08359" />
+
+캐릭터가 키보드 입력에 따라 이동하는지 확인하기
+
+> ### 영상
+
+![Image](https://github.com/user-attachments/assets/d6ab9af0-9d3e-4c02-b0ae-d4d4daca669d)
 
 ## 3. 느낀 점 & 개선하고 싶은 점
 
