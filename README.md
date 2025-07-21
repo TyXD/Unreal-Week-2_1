@@ -232,21 +232,61 @@ Project Settings > Maps & Modes > Default Pawn Class를 MyCharacter로 변경
 
 ### Character Movement Component란?
 
-언리얼의 기본 캐릭터 클래스에는 **움직임을 제어하는 컴포넌트**가 기본 탑재됨
+언리얼의 기본 캐릭터 클래스에는 **움직임을 제어하는 컴포넌트**가 기본 탑재되어 있다.
 
-**이동 속도, 점프 높이, 중력 설정** 등 다양한 조절이 가능함
+**이동 속도, 점프 높이, 중력 설정** 등 다양한 조절이 가능하다.
 
 ### Spring Arm + Camera 세팅
 
-Spring Arm은 **카메라와 캐릭터 간 거리를 부드럽게 유지**해 줌
+Spring Arm은 **카메라와 캐릭터 간 거리를 부드럽게 유지**해 준다.
 
-카메라가 **캐릭터를 따라다니며 회전**하게 만들 수 있음
+카메라가 **캐릭터를 따라다니며 회전**하게 만들 수 있다.
 
 ## 2. 구현 과정 요약 (스크린샷 + 간단 설명)
 
-- 캐릭터가 회전하며 이동 & 점프하는 플레이 영상 (10초 내외)필수 첨부
+<img width="1460" height="1069" alt="Image" src="https://github.com/user-attachments/assets/39dd4942-c4ba-47d1-9faa-a76a56c28e6f" />
 
-- 블루프린트에서 Jump와 Movement 관련 노드 캡처
+Content > ThirdPerson > Input > IMC_Default에서 Jump 액션 확인 (기본: Spacebar)
+
+MyCharacter 블루프린트에서 Jump 입력 이벤트 연결
+
+MyCharacter 블루프린트 → Event Graph
+
+우클릭 → InputAction Jump 검색 → Event → Jump() 노드 연결
+
+InputAction StopJumping → StopJumping() 연결
+
+<img width="573" height="1183" alt="Image" src="https://github.com/user-attachments/assets/3898e83a-266c-4717-b0ed-9e5b50636203" />
+
+MyCharacter > Character Movement 컴포넌트 선택
+
+Max Walk Speed: 기본 500 → 800 
+
+Jump Z Velocity: 기본 700 → 600
+
+<img width="736" height="1210" alt="Image" src="https://github.com/user-attachments/assets/8c599f16-fc41-490f-bd23-1613e98f6d60" />
+
+MyCharacter > SpringArmComponent 선택
+
+Use Pawn Control Rotation: 체크
+
+<img width="768" height="1280" alt="Image" src="https://github.com/user-attachments/assets/7bb1ce2d-9eb1-429d-bb78-c0f8a41c337a" />
+
+CameraComponent 선택해서
+
+Use Pawn Control Rotation: 체크 해제
+
+<img width="1043" height="1373" alt="Image" src="https://github.com/user-attachments/assets/5e5d2782-012e-451d-ba82-6607aa8c148c" />
+
+MyCharacter 블루프린트의 Class Defaults에서
+
+Use Controller Rotation Yaw: 체크
+
+![Image](https://github.com/user-attachments/assets/ccb6fc1d-2b5c-4766-82b4-119647059131)
+
+WASD + 마우스 회전 + 점프 조합으로 캐릭터 조작
+
+자연스럽게 회전하며 걷고 점프하는지 확인
 
 ## 3. 느낀 점 & 개선하고 싶은 점
 
@@ -270,9 +310,37 @@ Spring Arm은 **카메라와 캐릭터 간 거리를 부드럽게 유지**해 �
 
 ## 2. 구현 과정 요약 (스크린샷 + 간단 설명)
 
-- 씬 전체 뷰 스크린샷 1장, 캐릭터 이동 영상 1개 (10초 내외)
+<img width="2559" height="1389" alt="Image" src="https://github.com/user-attachments/assets/71575147-e565-47c1-b505-f9b1be15e545" />
 
-- 사용한 에셋 간략히 정리 (예: 나무 - Quixel / 계단 - Starter Content 등)
+일본풍 방을 만들기로 계획하고 
+
+배경이 되는 바닥과 벽 오브젝트를 FAB에서 구해 배치
+
+<img width="2559" height="1599" alt="Image" src="https://github.com/user-attachments/assets/cc984ba2-05d4-454e-90d3-5b5f45347034" />
+
+에셋에서 다양한 Static Mesh 배치
+
+Transform 조절을 활용해 다양하고 자연스럽게 배치
+
+[Step 3] 캐릭터 내비게이션 확인
+
+<img width="1578" height="1318" alt="Image" src="https://github.com/user-attachments/assets/afe7d119-6988-4e88-b498-63ba64f7bf98" />
+
+<img width="2038" height="1422" alt="Image" src="https://github.com/user-attachments/assets/9e7b824c-f6e6-4968-8c41-bbaca2dc9633" />
+
+<img width="1654" height="1195" alt="Image" src="https://github.com/user-attachments/assets/66b6c22c-5fa9-4ff6-97b3-2d0899e3c907" />
+
+<img width="1621" height="1335" alt="Image" src="https://github.com/user-attachments/assets/6a872bd3-ea98-4898-92d0-d7a29ba54e4b" />
+
+캐릭터가 부드럽게 돌아다닐 수 있도록 충돌 영역 조정
+
+지나가지 못해야 할 벽/장애물에는 Collision을 없애고 정확한 Collision 다시 설정
+
+https://youtu.be/rAG1MoQRUp4
+
+WASD로 걷고, 마우스로 둘러보고, 점프하면서 이동성 확인
+
+좁은 길, 계단 등 다양한 경로를 시도해보기
 
 ## 3. 느낀 점 & 개선하고 싶은 점
 
