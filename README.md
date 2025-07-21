@@ -366,9 +366,57 @@ FAB을 통해 내가 원하는 컨셉의 에셋 모음을 발견하고, 에셋�
 
 ## 2. 구현 과정 요약 (스크린샷 + 간단 설명)
 
-- 상호작용 동작 장면 영상 (10초 내외)
+<img width="2559" height="1500" alt="Image" src="https://github.com/user-attachments/assets/e03a2da3-ecb3-47ca-8159-94421882426a" />
 
-- MyCharacter와 대상 Actor 블루프린트 주요 노드 캡처
+Content > ThirdPerson > Input > Action에 IA_Interact(키: E) 추가
+
+<img width="2559" height="1599" alt="Image" src="https://github.com/user-attachments/assets/5001dbca-b121-4fec-9675-98e0e62887cf" />
+
+Content > ThirdPerson > Input > IMC_Default에 IA_Interact(키: E)에 등록하여
+
+E 키 이벤트를 블루프린트에서 찾기 위함.
+
+<img width="1845" height="1534" alt="Image" src="https://github.com/user-attachments/assets/8b095d83-22cd-4f98-9c61-e74e972ede05" />
+
+<img width="2276" height="1599" alt="Image" src="https://github.com/user-attachments/assets/5729d528-ded7-44cd-a236-9927c3b6206a" />
+
+새 Actor 블루프린트 생성 (BP_InteractableDoor와 BP_PickupItem)
+
+Static Mesh 추가 (문 / 아이템 등으로 보이게 설정)
+
+생성한 BP_InteractableDoor/BP_PickupItem 에디터에서
+
+Components 탭의 Static Mesh 선택
+
+Collision Presets → BlockAll 설정
+
+Line Trace가 오브젝트를 정확히 감지합니다.
+
+<img width="1691" height="893" alt="Image" src="https://github.com/user-attachments/assets/78012659-9329-4a50-a7c1-12c505c34e5f" />
+
+MyCharacter 블루프린트에 Line Trace by Channel 노드 추가
+
+E 키 입력 → Line Trace → Hit된 오브젝트 태그 확인 → 이벤트 실행
+
+<img width="1667" height="995" alt="Image" src="https://github.com/user-attachments/assets/d7996a6c-783b-448d-b5a5-6f8caa2f9cc5" />
+
+문이면: Timeline으로 Location값 이동
+
+<img width="1647" height="1072" alt="Image" src="https://github.com/user-attachments/assets/4b522465-fd1f-474e-b463-3fb21e53c10b" />
+
+아이템이면: Destroy Actor로 사라지게 처리
+
+<img width="2513" height="1545" alt="Image" src="https://github.com/user-attachments/assets/7f13c696-656f-4236-a30e-edaa2fd12eb1" />
+
+<img width="2536" height="1446" alt="Image" src="https://github.com/user-attachments/assets/fe06a553-061e-414c-bec9-1448784bfe00" />
+
+<img width="2537" height="1444" alt="Image" src="https://github.com/user-attachments/assets/3e1452f4-b7df-49a7-9bb3-462a1aaa724a" />
+
+상호작용 대상 블루프린트에 Tag: Interactable 설정
+
+https://youtu.be/FTXvtOonzyM
+
+게임에서 캐릭터가 E 키를 눌러 상호작용 되는지 테스트
 
 ## 3. 느낀 점 & 개선하고 싶은 점 
 
@@ -394,7 +442,12 @@ FAB을 통해 내가 원하는 컨셉의 에셋 모음을 발견하고, 에셋�
 
 ## 3. 결과물
 - 🎥 영상
+- https://youtu.be/QPmOjhdpyrs
 - 🖼️ 스크린샷 Top View
+- 
+<img width="1265" height="988" alt="Image" src="https://github.com/user-attachments/assets/842e6741-8c7d-40bc-b849-3df28d30ea8c" />
+
+<img width="2537" height="1418" alt="Image" src="https://github.com/user-attachments/assets/4e0f0334-94c2-452f-b6bb-0cd209f8ae73" />
 
 ## 4. 소감
 - 실제로 물건 치우는 게임 같은 걸 만들어내서 재미있었습니다. 그리고 미닫이문 만드는 게 고려할 게 많아서 오랜만에 새로운 걸 배웠다는 느낌이 좋았습니다.
